@@ -1,4 +1,5 @@
 import com.sreekar.pojo.Student;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.web.client.RestTemplate;
 
@@ -6,6 +7,7 @@ import java.util.List;
 
 public class TestStudentClassRestTemplate {
     @Test
+    @Ignore
     public void getStudentsTest() {
 
         final String uri = "http://localhost:8085/spring-boot-mvc-jsp-hibernate-Integration/students";
@@ -24,6 +26,7 @@ public class TestStudentClassRestTemplate {
     }
 
     @Test
+    @Ignore
     public void createStudentsTest() {
 
         final String uri = "http://localhost:8085/spring-boot-mvc-jsp-hibernate-Integration/saveStudent";
