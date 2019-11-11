@@ -40,6 +40,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public EmployeeEntity getEmployee(Integer empId) {
-        return sessionFactory.getCurrentSession().get(EmployeeEntity.class,empId);
+        return sessionFactory.getCurrentSession().get(EmployeeEntity.class, empId);
     }
 }

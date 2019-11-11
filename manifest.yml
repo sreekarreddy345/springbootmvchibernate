@@ -1,0 +1,5 @@
+name: sreekarreddy
+path: target\spring-boot-mvc-jsp-hibernate-Integration-0.1.0.war
+memory: 1G
+services:
+  - "SreekarMySQL"

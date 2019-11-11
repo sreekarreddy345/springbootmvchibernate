@@ -22,10 +22,18 @@ public class StudentServiceImpl implements StudentService {
 
         List<StudentEntity> students = studentsDAO.getStudents();
         List<Student> studentList = new ArrayList<>();
-        for (StudentEntity studentEntity: students){
+        for (StudentEntity studentEntity : students) {
             studentList.add(studentEntity.convertToBean());
         }
         return studentList;
+    }
+
+    @Override
+    public Student getStudent(Integer id) {
+
+        StudentEntity studentEntity = studentsDAO.getStudent(id);
+        return studentEntity == null ? null : studentEntity.convertToBean();
+
     }
 
     @Override

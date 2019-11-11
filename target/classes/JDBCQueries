@@ -1,2 +1,0 @@
-create table myemployee(id int primary key auto_increment,firstname varchar(30), lastname varchar(30), age int, city varchar(30));
-create table studentrecords(id int primary key auto_increment,address varchar(30) ,firstname varchar(30), lastname varchar(30));

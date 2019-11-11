@@ -1,9 +1,11 @@
 package com.sreekar.controller;
 
+import com.sreekar.exception.InvalidStudentIdException;
 import com.sreekar.pojo.Student;
 import com.sreekar.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,10 +25,22 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/students", method = RequestMethod.GET,
-            produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/students", method = RequestMethod.GET)
     public List<Student> students() {
         return studentService.getStudents();
+    }
+
+    @RequestMapping(value = "/students/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Student> students(@PathVariable Integer id) {
+
+        if (id == null || id == 0) {
+            throw new InvalidStudentIdException("Invalid student id");
+        }
+        Student studentId = studentService.getStudent(id);
+        if (studentId == null) {
+            throw new InvalidStudentIdException("Student id does not exists");
+        }
+        return new ResponseEntity<Student>(studentId, HttpStatus.OK);
     }
 
 

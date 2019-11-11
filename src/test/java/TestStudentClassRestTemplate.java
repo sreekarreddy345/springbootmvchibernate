@@ -14,6 +14,8 @@ public class TestStudentClassRestTemplate {
 
         RestTemplate restTemplate = new RestTemplate();
         List forObject = restTemplate.getForObject(uri, List.class);
+
+
         System.out.println(forObject);
         System.out.println("Size - " + forObject.size());
        /* HttpHeaders headers = new HttpHeaders();
